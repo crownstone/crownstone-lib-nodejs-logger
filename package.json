@@ -1,0 +1,28 @@
+{
+  "name": "crownstone-logger",
+  "version": "0.1.0",
+  "description": "Shared logging module based on Winston",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsc --watch",
+    "build": "rimraf ./dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crownstone/nodejs-logger.git"
+  },
+  "dependencies": {
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.1",
+    "@types/node": "^13.5.3",
+    "jest": "^25.1.0",
+    "typescript": "3.7.5",
+    "rimraf": "^3.0.2"
+  },
+  "author": "",
+  "license": "MIT"
+}
