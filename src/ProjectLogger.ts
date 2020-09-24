@@ -77,7 +77,9 @@ const addFileLoggingToLoggers = function() {
     if (TransportReferences[loggerId].file) {
       logger.remove(TransportReferences[loggerId].file);
     }
-    logger.add(generateFileLogger(loggerId));
+    if (process.argv.indexOf("--silent") === undefined) {
+      logger.add(generateFileLogger(loggerId));
+    }
   }
 }
 const removeFileLoggingFromLoggers = function() {
@@ -99,9 +101,8 @@ let FileLoggingEnabled = !fileLoggingSilent;
 
 
 function _createLogger(projectName) : {logger: any, transports: {console: any, file:any}} {
-  let existing = winston.loggers.loggers.get(projectName);
-  if (existing !== undefined) {
-    return existing;
+  if (winston.loggers.has(projectName)) {
+    return { logger: winston.loggers.get(projectName), transports: TransportReferences[projectName] };
   }
 
   let transports = {

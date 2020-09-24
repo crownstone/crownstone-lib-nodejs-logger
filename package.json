@@ -1,11 +1,12 @@
 {
   "name": "crownstone-logger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared logging module based on Winston",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "tsc --watch",
+    "test": "jest --useStderr",
     "build": "rimraf ./dist && tsc"
   },
   "repository": {
@@ -20,8 +21,12 @@
     "@types/jest": "^25.1.1",
     "@types/node": "^13.5.3",
     "jest": "^25.1.0",
-    "typescript": "3.7.5",
-    "rimraf": "^3.0.2"
+    "typescript": "3.9.7",
+    "rimraf": "^3.0.2",
+    "jest": "^26.3.0",
+    "ts-jest": "^26.2.0",
+    "tslib": "^2.0.0",
+    "source-map-support": "^0.5.19"
   },
   "author": "",
   "license": "MIT"
