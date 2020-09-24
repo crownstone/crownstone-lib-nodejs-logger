@@ -55,10 +55,11 @@ let fileLogBaseName     = process.env.CS_FILE_LOGGING_BASENAME          || 'crow
 let FILE_LOG_LEVEL      = process.env.CS_FILE_LOGGING_LEVEL             || 'info';
 let CONSOLE_LOG_LEVEL   = process.env.CS_CONSOLE_LOGGING_LEVEL          || 'info';
 let fileLoggingSilent   = true;
+const SILENT_FLAG_PRESENT = process.argv.indexOf("--silent") >= 0;
 if (process.env.CS_ENABLE_FILE_LOGGING === 'true') {
   fileLoggingSilent = false;
 }
-if (process.argv.indexOf("--silent") >= 0) {
+if (SILENT_FLAG_PRESENT) {
   fileLoggingSilent = true;
 }
 if (FILE_LOG_LEVEL === 'none') {
@@ -77,7 +78,7 @@ const addFileLoggingToLoggers = function() {
     if (TransportReferences[loggerId].file) {
       logger.remove(TransportReferences[loggerId].file);
     }
-    if (process.argv.indexOf("--silent") === undefined) {
+    if (SILENT_FLAG_PRESENT === false) {
       logger.add(generateFileLogger(loggerId));
     }
   }

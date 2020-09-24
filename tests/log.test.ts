@@ -9,7 +9,6 @@ afterAll(async () => {
 
 })
 
-
 test("logging types", async () => {
   let projectName = "testing"
   let Logger = generateProjectLogger(projectName)
