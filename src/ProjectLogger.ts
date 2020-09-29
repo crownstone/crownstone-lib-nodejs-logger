@@ -237,10 +237,11 @@ function generateCustomLogger(loggerData: {logger: Logger, transports: {console:
 export const generateProjectLogger = function(projectName: string) {
   return function getLogger(_filename: string, individialLogger= false) : Logger {
     let filename = path.basename(_filename).replace(path.extname(_filename),'');
+    let evaluatedProjectName = projectName;
     if (individialLogger) {
-      projectName = projectName + ":" + filename;
+      evaluatedProjectName = projectName + ":" + filename;
     }
-    let customLoggerData = _createLogger(projectName)
-    return generateCustomLogger(customLoggerData, projectName, filename)
+    let customLoggerData = _createLogger(evaluatedProjectName)
+    return generateCustomLogger(customLoggerData, evaluatedProjectName, filename)
   }
 }
