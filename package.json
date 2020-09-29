@@ -1,6 +1,6 @@
 {
   "name": "crownstone-logger",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Shared logging module based on Winston",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

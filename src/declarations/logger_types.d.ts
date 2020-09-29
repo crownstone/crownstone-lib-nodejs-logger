@@ -16,7 +16,7 @@ interface LoggerConfig {
   setConsoleLevel: (level: TransportLevel) => void,
   setFileLevel:    (level: TransportLevel) => void,
 
-  getTransportForLogger: (loggerId) => LoggerTransports,
+  getTransportForLogger: (loggerId) => LoggerTransports | undefined,
   getLoggerIds: () => string[]
 }
 
