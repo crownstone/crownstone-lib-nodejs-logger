@@ -1,5 +1,19 @@
-# crownstone-nodejs-logger
-shared logger item for all node libraries and projects based on winston
+# Crownstone logger for node projects
+
+This is a shared logger library for all Crownstone node libraries and projects. It is based on [winston](https://github.com/winstonjs/winston). 
+
+## Environmental variables
+
+These can be set (including defaults):
+
+```
+CS_FILE_LOGGING_BASENAME='crownstone-log'
+CS_FILE_LOGGING_LEVEL='info'
+CS_CONSOLE_LOGGING_LEVEL='info'
+CS_ENABLE_FILE_LOGGING=
+```
+
+It is possible to set a process argument `--silent`. Moreover, file logging is not enabled when `CS_ENABLE_FILE_LOGGING` isn't present in the environment.
 
 # License
 
